@@ -1,7 +1,4 @@
 {
-  "name": "Auth Jwt Basic React",
-  "description": "TODO: Add a short description about Auth Jwt Basic React",
-  "keywords": ["small", "sharp", "tool"],
   "environments": {
     "review": {
       "addons": ["heroku-postgresql:hobby-dev"],
