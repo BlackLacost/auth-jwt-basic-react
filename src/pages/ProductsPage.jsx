@@ -1,13 +1,21 @@
-import { useQuery } from '@tanstack/react-query'
-import { api } from '../api.fetch'
+import { Grid } from '@mui/material'
+import { ProductCard } from '../features/Products/ProductCard'
+import { useProducts } from '../features/Products/useProducts'
 
 export const ProductsPage = () => {
-  const { data: products, isLoading } = useQuery(['products'], async () => {
-    const res = await api.get('products')
-    return res.data.items
-  })
+  const { data: products, isLoading } = useProducts()
 
   if (isLoading) return <h1>Products Loading ...</h1>
 
-  return <pre>{JSON.stringify(products, null, 2)}</pre>
+  return (
+    <>
+      <Grid container p={3} spacing={3}>
+        {products.map((product) => (
+          <Grid item key={product.id} xs={12} md={6}>
+            <ProductCard product={product} />
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  )
 }
