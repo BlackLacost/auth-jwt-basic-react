@@ -10,6 +10,9 @@
           "description": "A secret key for verifying the integrity of signed cookies.",
           "generator": "secret"
         }
+      },
+      "scripts": {
+        "postdeploy": "npx prisma db seed"
       }
     }
   }
