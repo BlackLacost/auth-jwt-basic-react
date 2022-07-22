@@ -1,8 +1,11 @@
 import express from 'express'
 import path from 'path'
+import { productsRouter } from './products/products.router.mjs'
 
 const app = express()
 const port = process.env.PORT || 4000
+
+app.use('/api/products', productsRouter)
 
 app.get('/api/check', (req, res) => {
   res.json({ message: 'API checked' })
